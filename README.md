@@ -25,9 +25,13 @@ Antes de ejecutar la aplicación, asegúrate de tener instalado:
 git clone https://github.com/tu_usuario/spring-boot-magomez-demo-next.git
 cd spring-boot-magomez-demo-next
 
+---
+
 2. Construye el proyecto con maven
 
 mvn clean install
+
+---
 
 3. Ejecuta la aplicación
    
@@ -35,6 +39,8 @@ mvn spring-boot:run
 
 La API se ejecutará en http://localhost:8080
 Swagger UI estará disponible en: http://localhost:8080/swagger-ui.html
+
+---
 
 4. Para probar los endpoints:
 
@@ -50,9 +56,13 @@ GET http://localhost:8080/account/{id}/transactions
 {id} = id de la tarjeta.
 Retiros, depósitos y transferencias: consulta Swagger para los detalles de cada endpoint.
 
+---
+
 5. Ejecutar tests unitarios e integración:
 
    mvn test
+
+
 
 ## Ejecutar la API **con Docker**
 
