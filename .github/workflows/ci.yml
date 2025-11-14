@@ -43,3 +43,15 @@ jobs:
       - name: Run tests
         run: mvn test
 
+      # 6.  Generar JAR
+      - name: Package Spring Boot JAR
+        run: mvn package -DskipTests
+
+      # 7. Construir imagen Docker y etiquetar
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: spring-boot-magomez-demo-next:latest
