@@ -25,14 +25,16 @@ public class AccountController {
     @PostMapping("/{id}/deposit")
     public AccountDTO deposit(@PathVariable Long id,
                               @RequestParam BigDecimal amount,
+                              @RequestParam Long cardId,
                               @RequestParam(defaultValue = "true") boolean sameBank) {
-        return accountService.deposit(id, amount, sameBank);
+        return accountService.deposit(id, amount, sameBank, cardId);
     }
 
     @PostMapping("/{id}/withdraw")
     public AccountDTO withdraw(@PathVariable Long id,
                                @RequestParam BigDecimal amount,
+                               @RequestParam Long cardId,
                                @RequestParam(defaultValue = "true") boolean sameBank) {
-        return accountService.withdraw(id, amount, sameBank);
+        return accountService.withdraw(id, amount, sameBank, cardId);
     }
 }

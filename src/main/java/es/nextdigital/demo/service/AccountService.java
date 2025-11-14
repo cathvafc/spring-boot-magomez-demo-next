@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface AccountService {
     List<TransactionDTO> getTransactions(Long accountId);
-    AccountDTO deposit(Long accountId, BigDecimal amount, boolean sameBank);
-    AccountDTO withdraw(Long accountId, BigDecimal amount, boolean sameBank);
+    AccountDTO deposit(Long accountId, BigDecimal amount, boolean sameBank, Long cardId);
+    AccountDTO withdraw(Long accountId, BigDecimal amount, boolean sameBank, Long cardId);
 }
