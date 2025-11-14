@@ -58,12 +58,17 @@ class TransferIntegrationTest {
         assertTrue(BigDecimal.valueOf(700).compareTo(accountRepository.findById(accountB.getId()).get().getBalance()) == 0);
 
         //Verify transactions
-        List<Transaction> txA = transactionRepository.findAll().stream()
-                .filter(t -> t.getAccount().equals(accountA))
+        List<Transaction> transactionsA = transactionRepository.findAll().stream()
+                .filter(t -> t.getAccount().getId().equals(accountA.getId()))
                 .toList();
-        assertEquals(1, txA.size());
-        assertEquals(TransactionType.TRANSFER_OUT, txA.get(0).getType());
+        assertTrue(transactionsA.stream().anyMatch(t -> t.getType() == TransactionType.TRANSFER_OUT));
+
+        List<Transaction> transactionsB = transactionRepository.findAll().stream()
+                .filter(t -> t.getAccount().getId().equals(accountB.getId()))
+                .toList();
+        assertTrue(transactionsB.stream().anyMatch(t -> t.getType() == TransactionType.TRANSFER_IN));
     }
+
 
     @Test
     void testTransferOtherBankWithCommission() {

@@ -43,7 +43,7 @@ class TransactionIntegrationTest {
     @Test
     void testGetAccountTransactions() {
         List<Transaction> transactions = transactionRepository.findAll().stream()
-                .filter(t -> t.getAccount().equals(account))
+                .filter(t -> t.getAccount().getId().equals(account.getId()))
                 .toList();
 
         assertEquals(2, transactions.size());
