@@ -70,9 +70,13 @@ Retiros, depósitos y transferencias: consulta Swagger para los detalles de cada
 
 docker build -t spring-boot-magomez-demo-next (o el nombre que le quieras poner a la imagen de docker)
 
+---
+
 2. Ejecutar el contenedor
    
 docker run -p 8080:8080 spring-boot-magomez-demo-next
+
+---
 
 3. docker-compose.yml:
 
@@ -80,6 +84,8 @@ docker-compose up --build
 
 
 Levanta automáticamente la aplicación y servicios adicionales si se configuran.
+
+---
 
 4. Para detener todo:
 
